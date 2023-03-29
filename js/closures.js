@@ -249,7 +249,13 @@ console.log(myFib(45));
 // In Class Exercise
 // Create an IIFE that has a hidden array of names (starts as an empty array) but will add users to the array every time the function is called
 
-const addName = (()=>{})();
+const addName = (()=>{
+    let names = [];
+    return function(name){
+        names.push(name)
+        return names
+    };
+})();
 
 console.log(addName('Brian')); // ['Brian']
 console.log(addName('Tatyana')); // ['Brian', 'Tatyana']
